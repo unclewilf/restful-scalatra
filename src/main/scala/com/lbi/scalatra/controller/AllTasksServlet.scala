@@ -2,13 +2,16 @@ package com.lbi.scalatra.controller
 
 import org.scalatra._
 import scalate.ScalateSupport
+import com.lbi.scalatra.configuration.ComponentRegistry
 
 class AllTasksServlet extends ScalatraServlet with ScalateSupport {
 
   val url = "/test"
 
   get(url) {
-    "content"
+    val warmer = ComponentRegistry.warmer
+    warmer.trigger
+    "TEST URL"
   }
 
   notFound {
