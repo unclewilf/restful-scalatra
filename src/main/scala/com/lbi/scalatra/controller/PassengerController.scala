@@ -15,6 +15,7 @@ class PassengerController extends ScalatraServlet with JacksonJsonSupport with S
   protected implicit val jsonFormats: Formats = DefaultFormats
 
   val url = "/passenger"
+  val passengerRepository = new PassengerRepository
 
   // Before every action runs, set the content type to be in JSON format.
   before() {
@@ -22,17 +23,15 @@ class PassengerController extends ScalatraServlet with JacksonJsonSupport with S
   }
 
   get(url) {
-    PassengerRepository.getAll
+    passengerRepository.getAll
   }
 
-  notFound {
-    // remove content type in case it was set through an action
-    contentType = null
-    // Try to render a ScalateTemplate if no route matched
-    findTemplate(requestPath) map { path =>
-      contentType = "text/html"
-      layoutTemplate(path)
-    } orElse serveStaticResource() getOrElse resourceNotFound()
+  get(url+ "/:username") {
+    val passenger = passengerRepository.getByUsername(params("username"))
+    passenger match {
+      case Some(validPassenger) => validPassenger
+      case None => resourceNotFound()
+    }
   }
 
 }

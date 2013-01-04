@@ -2,7 +2,7 @@ package com.lbi.scalatra.repositories
 
 import com.lbi.scalatra.domain.Passenger
 
-object PassengerRepository {
+class PassengerRepository {
 
   def getAll: List[Passenger] = {
     List(
@@ -12,13 +12,9 @@ object PassengerRepository {
     )
   }
 
-//  def authenticate(user:Passenger): Passenger = {
-//      println("authenticating user" + user)
-//      user
-//  }
-//
-//  def create(username: String, password: String) = println("creating user")
-//
-//  def delete(user: Passenger) = println("deleting user")
+  def getByUsername(username: String): Option[Passenger] = {
+    val passengers = getAll
+    passengers.find(passenger => passenger.username == username)
+  }
 
 }
