@@ -1,7 +1,3 @@
 package com.lbi.scalatra.domain
 
-class Passenger {
-  var name: String = _
-  var username: String = _
-  var password: String = _
-}
+case class Passenger (name: String,username: String, password: String)

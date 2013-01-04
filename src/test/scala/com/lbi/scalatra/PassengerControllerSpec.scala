@@ -14,10 +14,10 @@ class PassengerControllerSpec extends ScalatraSpec {
 
   addServlet(classOf[PassengerController], "/*")
 
-  def root200 = get("/test") {
+  def root200 = get("/passenger") {
     status must_== 200
   }
 
-  def urlIsTest = (allTasksServlet.url == "/test")
+  def urlIsTest = (allTasksServlet.url == "/passenger")
 
 }
