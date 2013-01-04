@@ -3,9 +3,9 @@ package com.lbi.scalatra.controller
 import org.scalatra._
 import scalate.ScalateSupport
 
-class AllTasksServlet extends ScalatraServlet with ScalateSupport {
+class PassengerController extends ScalatraServlet with ScalateSupport {
 
-  val url = "/test"
+  val url = "/passenger"
 
   get(url) {
     "content"
