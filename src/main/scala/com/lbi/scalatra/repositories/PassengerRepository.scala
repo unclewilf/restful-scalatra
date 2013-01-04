@@ -13,8 +13,7 @@ class PassengerRepository {
   }
 
   def getByUsername(username: String): Option[Passenger] = {
-    val passengers = getAll
-    passengers.find(passenger => passenger.username == username)
+    getAll.find(passenger => passenger.username == username)
   }
 
 }
