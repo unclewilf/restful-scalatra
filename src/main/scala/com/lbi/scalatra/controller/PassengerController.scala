@@ -11,12 +11,14 @@ import org.scalatra.json._
 class PassengerController extends ScalatraServlet with JacksonJsonSupport with ScalateSupport {
 
   protected implicit val jsonFormats: Formats = DefaultFormats
+  override def js
 
   val url = "/passenger"
   val passengerRepository = new PassengerRepository
 
   before() {
     contentType = formats("json")
+    initialize()
   }
 
   get(url) {
