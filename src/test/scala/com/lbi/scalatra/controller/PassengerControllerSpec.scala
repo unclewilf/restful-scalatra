@@ -12,7 +12,7 @@ class PassengerControllerSpec extends ScalatraSpec {
 
   val passengerController = new PassengerController
 
-  addServlet(classOf[PassengerController], "/*")
+  addServlet(classOf[PassengerController], "/passenger/*")
 
   def returnAllPassengers = get("/passenger") {
     status must_== 200

@@ -19,11 +19,11 @@ class PassengerController extends ScalatraServlet with JacksonJsonSupport {
     contentType = formats("json")
   }
 
-  get(url) {
+  get() {
     passengerRepository.getAll
   }
 
-  get(url+ "/:username") {
+  get("/:username") {
     passengerRepository.getByUsername(params("username")) match {
       case Some(validPassenger) => validPassenger
       case None => resourceNotFound()

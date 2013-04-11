@@ -1,14 +1,16 @@
 package com.lbi.scalatra.repositories
 
-import com.lbi.scalatra.domain.Passenger
+import com.lbi.scalatra.domain.{Flight, Passenger}
 
 class PassengerRepository {
 
+  val flightRepository = new FlightRepository
+
   def getAll: List[Passenger] = {
     List(
-      Passenger("Bob Smith", "bs", "12345"),
-      Passenger("Ted Jones", "tj", "12345"),
-      Passenger("Dave Jackson", "dj", "12345")
+      Passenger("Bob Smith", "bs", "12345", List(Flight("/flight/VA001", "Boston to Heathrow"))),
+      Passenger("Ted Jones", "tj", "12345", List(Flight("/flight/VA001", "Boston to Heathrow"))),
+      Passenger("Dave Jackson", "dj", "12345", List(Flight("/flight/VA001", "Boston to Heathrow")))
     )
   }
 

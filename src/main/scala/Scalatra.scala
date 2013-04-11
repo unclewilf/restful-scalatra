@@ -1,5 +1,5 @@
 import com.lbi.scalatra._
-import controller.PassengerController
+import com.lbi.scalatra.controller.{FlightController, PassengerController}
 import org.scalatra._
 import javax.servlet.ServletContext
 
@@ -12,7 +12,7 @@ class Scalatra extends LifeCycle {
   override def init(context: ServletContext) {
 
     // Mount one or more servlets
-    context.mount(new PassengerController, "/")
-
+    context.mount(new FlightController, "/flight/*")
+    context.mount(new PassengerController, "/passenger/*")
   }
 }
