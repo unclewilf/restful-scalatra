@@ -9,6 +9,7 @@ class PassengerControllerSpec extends ScalatraSpec {
     "should have a url of test"                 ! urlIsTest^
     "get by invalid passenger id throws 404"    ! invalidPassengerIdThrowsException^
     "get by valid passenger id throws 202"      ! validPassengerIdThrowsException^
+    "get by valid passenger id throws 202"      ! validPassengerIdThrowsException^
                                                 end
 
   val passengerController = new PassengerController
