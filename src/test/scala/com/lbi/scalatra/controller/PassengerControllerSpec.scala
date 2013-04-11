@@ -5,11 +5,9 @@ import org.scalatra.test.specs2._
 class PassengerControllerSpec extends ScalatraSpec {
   def is =
   "GET / on PassengerController"                ^
-    "should return status 200"                  ! returnAllPassengers^
-    "should have a url of test"                 ! urlIsTest^
+    "return all passengers with status 200"     ! returnAllPassengers^
     "get by invalid passenger id throws 404"    ! invalidPassengerIdThrowsException^
-    "get by valid passenger id throws 202"      ! validPassengerIdThrowsException^
-    "get by valid passenger id throws 202"      ! validPassengerIdThrowsException^
+    "get by valid passenger id"                 ! validPassengerId^
                                                 end
 
   val passengerController = new PassengerController
@@ -20,13 +18,11 @@ class PassengerControllerSpec extends ScalatraSpec {
     status must_== 200
   }
 
-  def urlIsTest = (passengerController.url == "/passenger")
-
   def invalidPassengerIdThrowsException = get("/passenger/invalid_id") {
     status must_== 404
   }
 
-  def validPassengerIdThrowsException = get("/passenger/tj") {
+  def validPassengerId = get("/passenger/tj") {
     status must_== 200
   }
 
