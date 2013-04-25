@@ -12,17 +12,17 @@ class PassengerControllerSpec extends ScalatraSpec {
 
   val passengerController = new PassengerController
 
-  addServlet(classOf[PassengerController], "/passenger/*")
+  addServlet(classOf[PassengerController], "/passengers/*")
 
-  def returnAllPassengers = get("/passenger") {
+  def returnAllPassengers = get("/passengers") {
     status must_== 200
   }
 
-  def invalidPassengerIdThrowsException = get("/passenger/invalid_id") {
+  def invalidPassengerIdThrowsException = get("/passengers/invalid_id") {
     status must_== 404
   }
 
-  def validPassengerId = get("/passenger/tj") {
+  def validPassengerId = get("/passengers/tj") {
     status must_== 200
   }
 

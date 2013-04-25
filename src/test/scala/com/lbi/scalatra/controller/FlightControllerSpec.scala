@@ -12,13 +12,13 @@ class FlightControllerSpec extends ScalatraSpec {
 
   val flightController = new FlightController
 
-  addServlet(classOf[FlightController], "/flight/*")
+  addServlet(classOf[FlightController], "/flights/*")
 
-  def invalidFlightIdThrowsException = get("/flight/invalid_id") {
+  def invalidFlightIdThrowsException = get("/flights/invalid_id") {
     status must_== 404
   }
 
-  def validFlightId = get("/flight/VA001") {
+  def validFlightId = get("/flights/VA001") {
     status must_== 200
   }
 

@@ -11,7 +11,7 @@ class FlightController extends ScalatraServlet with JacksonJsonSupport {
 
   protected implicit val jsonFormats: Formats = DefaultFormats
 
-  val url = "/flight"
+  val url = "/flights"
   val flightRepository = new FlightRepository
 
   before() {

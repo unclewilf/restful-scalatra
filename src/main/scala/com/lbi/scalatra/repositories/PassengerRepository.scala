@@ -8,9 +8,9 @@ class PassengerRepository {
 
   def getAll: List[Passenger] = {
     List(
-      Passenger("Bob Smith", "bs", "12345", List(Flight("/flight/VA001", "Boston to Heathrow"))),
-      Passenger("Ted Jones", "tj", "12345", List(Flight("/flight/VA001", "Boston to Heathrow"))),
-      Passenger("Dave Jackson", "dj", "12345", List(Flight("/flight/VA001", "Boston to Heathrow")))
+      Passenger("Bob Smith", "bs", "12345", List(Flight("/flights/VA001", "Boston to Heathrow"))),
+      Passenger("Ted Jones", "tj", "12345", List(Flight("/flights/VA001", "Boston to Heathrow"))),
+      Passenger("Dave Jackson", "dj", "12345", List(Flight("/flights/VA001", "Boston to Heathrow")))
     )
   }
 

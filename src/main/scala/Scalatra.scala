@@ -12,7 +12,7 @@ class Scalatra extends LifeCycle {
   override def init(context: ServletContext) {
 
     // Mount one or more servlets
-    context.mount(new FlightController, "/flight/*")
-    context.mount(new PassengerController, "/passenger/*")
+    context.mount(new FlightController, "/flights/*")
+    context.mount(new PassengerController, "/passengers/*")
   }
 }

@@ -12,7 +12,7 @@ class PassengerController extends ScalatraServlet with JacksonJsonSupport {
 
   protected implicit val jsonFormats: Formats = DefaultFormats
 
-  val url = "/passenger"
+  val url = "/passengers"
   val passengerRepository = new PassengerRepository
 
   before() {
